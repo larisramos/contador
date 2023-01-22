@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        *{
+            margin: 0;
+            box-sizing: border-box
+        }
 
+        body {
+            min-height: 100vh; /*Deixa o body no tamanho total da página e o 'min' significa; se houver um conteúdo maior, a tela não corta este conteúdo, assim o tornando adaptavel*/
+            background: black;
+            color: white;
+            /*CENTRALIZANDO*/
+            display: grid;
+            place-items: center;
+        }
+        section {
+            background: rgba(255, 255, 255, 20%);
+            padding: 20px; /*Espaçamento entre a borda e o conteúdo*/
+            border-radius: 5px; /*Arredondamento cantos*/
+            text-align: center; /*Alinhamento do texto*/
+
+        }   
+
+        p{
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Contador</h1>
+        <p id="resultado">0</p>
+        <button onclick="menos()">-</button>
+        <button onclick="mais()">+</button>
+    </section>
+    <script>
+    //Estado da aplicação
+    let number = 0
+        //Modificando o estado da aplicação
+        function menos(){
+            number--
+            console.log(number)/*Verificando se entrou na função*/
+            atualiazacaoTela()
+        }
+        function mais(){
+            number++
+            console.log(number)/*Verificando se entrou na função*/
+            atualiazacaoTela()
+        }
+        //Conectando os modificadores acima e atualizando o número da tela
+        function atualiazacaoTela(){
+            const p = document.querySelector("#resultado")
+            p.innerText = number
+        }
+    </script>
+</body>
+</html>
